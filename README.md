@@ -81,7 +81,7 @@ docker compose -f docker-compose.yml exec backend python manage.py createsuperus
 5. Собрать статику:
 
 ```
-docker compose -f docker-compose.dev.yaml exec backend python manage.py collectstatic --no-input
+docker compose -f docker-compose.yml exec backend python manage.py collectstatic --no-input
 ```
 
 6. После успешного запуска проект станет доступен по адресу:

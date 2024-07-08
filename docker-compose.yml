@@ -1,0 +1,31 @@
+version: '3'
+
+volumes:
+  pg_data:
+  static_volume:
+
+services:
+  db:
+    image: postgres:16.1-alpine
+    environment:
+      POSTGRES_DB: your_db_name
+      POSTGRES_USER: your_db_user
+      POSTGRES_PASSWORD: your_password
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./postsproject/
+    env_file: .env
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    volumes:
+        - static_volume:/backend_static
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      POSTGRES_DB: your_db_name
+      POSTGRES_USER: your_db_user
+      POSTGRES_PASSWORD: your_password
