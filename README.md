@@ -172,7 +172,7 @@ docker compose -f docker-compose.yml exec backend python manage.py collectstatic
   [
     {
       "title": "Updated Example Title",
-      "content": ""Updated Example Content"",
+      "content": "Updated Example Content",
     },
   ]
 
